@@ -5,6 +5,7 @@
         <title>Comments</title>
     {% endblock %} 
     {% block content %}
+    <section>
         <div>
             <h3>Post comment</h3>
             <p>
@@ -22,5 +23,6 @@
                 <li onclick="selectComment('{{result.id}}','{{result.comment}}')">[{{ result.id }}]=> {{result.comment}}</li>
             {% endfor %}
         </ul>
+    </section>
         
     {% endblock %}

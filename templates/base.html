@@ -10,16 +10,18 @@
     <link href="{{ url_for('static', path='/css/main.css') }}" rel="stylesheet" />
     <script src="{{ url_for('static', path='/js/main.js') }}"></script>
 </head>
-<body>
+<header>
     <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/comment">Comment section</a></li>
-            <li><a href="/ticker-chart">Ticker chart</a></li>
-            <li><a href="/greed-and-fear">Greed and Fear index</a></li>
+        <ul class="nav">
+            <li class="nav"><a href="/">Home</a></li>
+            <li class="nav"><a href="/comment">Comment section</a></li>
+            <li class="nav"><a href="/ticker-chart">Ticker chart</a></li>
+            <li class="nav"><a href="/greed-and-fear">Greed and Fear index</a></li>
         </ul>
     </nav>
-    <div id="content">
+</header>
+<body>
+    <div id="content" class="container">
         {% block content %}{% endblock %}
     </div>
 </body>

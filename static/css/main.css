@@ -1,3 +1,40 @@
 body {
-    background-color: wheat;
+  background-color: wheat;
+}
+
+.container {
+    margin: 3cm;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: aquamarine;
+}
+
+.nav > ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #333;
+}
+
+.nav > li {
+  float: left;
+  display: block;
+}
+
+.nav > li a {
+  color: slateblue;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change the link color to #111 (black) on hover */
+.nav > li a:hover {
+  background-color: rgb(249, 85, 85);
+  color: aqua;
 }
