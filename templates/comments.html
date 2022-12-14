@@ -1,0 +1,26 @@
+{% extends "base.html" %} 
+    {% block head %}
+        <link href="{{ url_for('static', path='/css/comments.css') }}" rel="stylesheet" />
+        <script src="{{ url_for('static', path='/js/comments.js') }}"></script>
+        <title>Comments</title>
+    {% endblock %} 
+    {% block content %}
+        <div>
+            <h3>Post comment</h3>
+            <p>
+                Selected comment: <br>
+                <div id="selected-comment"></div>
+            </p>
+
+            <form method='post' action='/comment'>
+                <input type="text" id="comment" name="comment" value="" required/>
+                <input type="submit" value="submit" />
+            </form>
+        </div>
+        <ul class="comments">
+            {% for result in payload %}
+                <li onclick="selectComment('{{result.id}}','{{result.comment}}')">[{{ result.id }}]=> {{result.comment}}</li>
+            {% endfor %}
+        </ul>
+        
+    {% endblock %}

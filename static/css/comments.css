@@ -1,0 +1,4 @@
+.comments > li:hover {
+    display: block;
+    background-color: lightcoral;
+}
