@@ -1,5 +1,5 @@
-body {
-  background-color: wheat;
+body{
+  background-color: rgb(47, 47, 47);
 }
 
 .container {
@@ -10,7 +10,9 @@ nav {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: aquamarine;
+    background-color: #778899;
+    text-align: center;
+    font-size: 16px;
 }
 
 .nav > ul {
@@ -26,7 +28,7 @@ nav {
 }
 
 .nav > li a {
-  color: slateblue;
+  color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -35,6 +37,42 @@ nav {
 
 /* Change the link color to #111 (black) on hover */
 .nav > li a:hover {
-  background-color: rgb(249, 85, 85);
-  color: aqua;
+  color: rgb(122, 0, 0);
 }
+
+*{
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+  text-transform: capitalize;
+  font-family: verdana;
+  border: none;
+  outline: none;
+  letter-spacing: 2px;
+}
+
+li {
+  background-color: #778899;
+  text-align: center;
+  padding: 8px 50px 8px;
+  display: flex
+}
+
+body {
+  font-size: 14px;
+  display: flex
+}
+
+p{
+  font-size: 16px;
+  text-transform: none;
+  text-align: left;
+  text-indent: 10%;
+  line-height: 30px;
+}
+
+h1{
+  font-size: 21px;
+  color: white;
+  text-align: left;
+}
+
