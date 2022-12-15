@@ -13,46 +13,40 @@
         <title>Comments</title>
     {% endblock %} 
     {% block content %}
-    <body>
+
+    <body onload="showComments(JSON.stringify(`{{content}}`))"></body>
+   
         <h1>Comment Section</h1>
-        <div class = "container">
-            <input type = "text" id = "input" placeholder = "How do you feel about crypto today?">
-            <button type = "button" name = "button" id = "cancel">cancel</button>
-            <button type = "button" name = "button" id = "comment">comment</button>
+        <form method="post" action="/comment">
+          <input
+            type="text"
+            id="input"
+            name="comment"
+            placeholder="How do you feel about crypto today?"
+            required
+          />
+          <button type="button" name="button" id="cancel">cancel</button>
+          <button class="comment" type="submit">comment</button>
+        </form>
             
-            <div class = "box-container">
-            <div class = "box"></div> 
-            <button type = "button" name = "button" id = "delete">delete</button>
-            </div> 
-            </div>
+        <div class="box-container">
+          <ul class="box" id="box-list"></ul>
+          <button type="button" name="button" id="hide">hide</button>
+        </div>
     
-          <ul>{% for comment in comments %}
-              <li>{{ payload[0].comment }}</li>
-              {% endfor %}
-          </ul>
             
-            <script type="text/javascript">
-            
-            $(document).ready(function(){
-            
-              $("#comment").click(function(){
-                var input = $("#input").val();
-                $('.box').append(input + "<br>");
-                $("#input").val("");
-                $(".box-container").slideDown();
-                
-              });
-              $("#cancel").click(function(){
+          <script type="text/javascript">
+            $(document).ready(function () {
+              $("#cancel").click(function () {
                 $("#input").val("");
               });
-            
-              $("#delete").click(function(){
+        
+              $("#hide").click(function () {
                 $(".box").text("");
                 $(".box-container").slideUp();
               });
             });
-            
-            </script>
-    </body>
+          </script>
+  
         
     {% endblock %}

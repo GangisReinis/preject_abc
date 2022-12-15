@@ -12,11 +12,7 @@ comments > li:hover {
     outline: none;
     letter-spacing: 2px;
   }
-  body{
-    display: flex;
-    align-items: center;
-    min-height: 100vh;
-  }
+  
   .container{
     width: 500px;
     text-align: right;
@@ -27,7 +23,7 @@ comments > li:hover {
     background: rgb(87, 87, 87);
     border-radius: 5px;
     padding: 15px;
-    display: none;
+    display: absolute;
   }
   .box-container .box{
     height: 80%;
@@ -60,4 +56,8 @@ comments > li:hover {
   }
   button:hover{
     opacity: .8; 
+  }
+  
+  .box > li {
+    background-color: #f8f8f8;
   }

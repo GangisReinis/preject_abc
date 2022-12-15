@@ -2,6 +2,7 @@ from fastapi import Depends, FastAPI, status, Request, Form
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+from fastapi.encoders import jsonable_encoder
 
 from sqlalchemy.orm import Session
 
@@ -34,20 +35,19 @@ def index(request: Request):
 def read_comments(request: Request, db: Session = Depends(get_db)):
     data = crud.get_comments(db)
     return templates.TemplateResponse(
-        "comments.html", {"request": request, "payload": data}
+        "comments.html", {"request": request, "content": jsonable_encoder(data)}
     )
 
 
 @app.post("/comment", status_code=status.HTTP_201_CREATED)
-def read_comments(
+def post_comments(
     request: Request, comment: str = Form(...), db: Session = Depends(get_db)
 ):
-    # Note: pip install python-multipart
     payload = schemas.CommentPayload(comment=comment)
     crud.post_comment(db, payload)
     data = crud.get_comments(db)
     return templates.TemplateResponse(
-        "comments.html", {"request": request, "payload": data}
+        "comments.html", {"request": request, "content": jsonable_encoder(data)}
     )
 
 
@@ -69,3 +69,4 @@ def post_comment(payload: schemas.CommentPayload, db: Session = Depends(get_db))
 @app.get("/api/comment", status_code=status.HTTP_200_OK)
 def get_comments(db: Session = Depends(get_db)):
     return crud.get_comments(db)
+

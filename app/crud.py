@@ -5,7 +5,7 @@ from .schemas import CommentPayload
 
 
 def get_comments(db: Session):
-    return db.query(Comment).all()
+    return db.query(Comment).order_by(Comment.id.desc()).all()
 
 
 def post_comment(db: Session, payload: CommentPayload):
@@ -15,3 +15,6 @@ def post_comment(db: Session, payload: CommentPayload):
     db.refresh(db_item)
 
     return db_item
+
+
+
