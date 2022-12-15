@@ -25,7 +25,11 @@
             <button type = "button" name = "button" id = "delete">delete</button>
             </div> 
             </div>
-            
+    
+          <ul>{% for comment in comments %}
+              <li>{{ payload[0].comment }}</li>
+              {% endfor %}
+          </ul>
             
             <script type="text/javascript">
             
