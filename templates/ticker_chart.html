@@ -2,6 +2,7 @@
 
 
 {% block head %}
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <link href="{{ url_for('static', path='/css/ticker.css') }}" rel="stylesheet" />
 <script src="{{ url_for('static', path='/js/ticker.js') }}"></script>
 <title>BTCUSDT Chart</title>
@@ -9,5 +10,8 @@
 
 {% block content %}
   <h1>BTCUSDT Chart</h1>
+  <p>{{content}}</p>
+  
+  <div id='ticker'></div>
 {% endblock %}
 
