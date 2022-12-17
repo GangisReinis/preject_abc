@@ -51,7 +51,7 @@ nav {
 }
 
 li {
-  background-color: #778899;
+  background-color: none;
   text-align: center;
   display: flex;
   margin-top: none;
@@ -59,15 +59,16 @@ li {
 
 body {
   font-size: 14px;
-  display: flex
+  display: flex;
+  color: white;
 }
 
 p{
   font-size: 16px;
   text-transform: none;
   text-align: left;
-  text-indent: 10%;
   line-height: 30px;
+  color: white;
 }
 
 h1{
@@ -92,3 +93,4 @@ body{
   align-items: center;
   margin-top: 55pt;
 }
+
