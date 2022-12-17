@@ -5,6 +5,8 @@ from fastapi.templating import Jinja2Templates
 from fastapi.encoders import jsonable_encoder
 import pandas as pd
 from .tools import get_ticker_data
+import plotly.graph_objects as go
+import plotly.express as px
 
 
 from sqlalchemy.orm import Session

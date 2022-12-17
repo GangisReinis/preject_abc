@@ -2,9 +2,13 @@
 
 
 {% block head %}
+<head>
+<script src='https://cdn.plot.ly/plotly-2.16.1.min.js'></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <link href="{{ url_for('static', path='/css/greed_and_fear.css') }}" rel="stylesheet" />
 <script src="{{ url_for('static', path='/js/greed_and_fear.js') }}"></script>
 <title>Fear and Greed</title>
+</head>
 {% endblock %} 
 
 {% block content %}
@@ -15,12 +19,12 @@
     async function indexCall(){
         const result = await fetch(URL)
         result.json().then(data =>{
-            console.log(data)
         })
     }
     
     indexCall()
     </script>
+    <br><br>
     <div id='fng'></div>
     <br><br>
         <p>&#x2022; 0 - 49 indicates fear</p>
