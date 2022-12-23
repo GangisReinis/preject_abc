@@ -1,33 +1,33 @@
-body{
+body {
   background-color: rgb(47, 47, 47);
 }
 
 .container {
-    margin: 1cm;
+  margin: 1cm;
 }
 
 nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: #778899;
-    text-align: center;
-    font-size: 16px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #778899;
+  text-align: center;
+  font-size: 16px;
 }
 
-.nav > ul {
+.nav>ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   background-color: #333;
 }
 
-.nav > li {
+.nav>li {
   float: left;
   display: block;
 }
 
-.nav > li a {
+.nav>li a {
   color: white;
   text-align: center;
   padding: 14px 16px;
@@ -36,12 +36,13 @@ nav {
 }
 
 /* Change the link color to #111 (black) on hover */
-.nav > li a:hover {
+.nav>li a:hover {
   color: rgb(122, 0, 0);
 }
 
-*{
-  margin: 0; padding: 0;
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
   text-transform: capitalize;
   font-family: verdana;
@@ -62,7 +63,7 @@ body {
   display: flex;
 }
 
-p{
+p {
   font-size: 16px;
   text-transform: none;
   text-align: left;
@@ -70,26 +71,25 @@ p{
   color: white;
 }
 
-h1{
+h1 {
   font-size: 21px;
   color: white;
   text-align: left;
 }
 
-.nav{
+.nav {
   display: flex;
   align-items: center;
   margin-left: 5px;
   margin-right: 5px;
 }
 
-.nav > li {
+.nav>li {
   text-align: center;
 }
 
-body{
+body {
   display: flex;
   align-items: center;
   margin-top: 55pt;
 }
-

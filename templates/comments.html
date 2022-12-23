@@ -1,53 +1,47 @@
-{% extends "base.html" %} 
-    {% block head %}
-    
-    <head>  
-        <style media = "screen">
-        
-        </style>
-        <link href="{{ url_for('static', path='/css/comments.css') }}" rel="stylesheet" />
-        <script src="{{ url_for('static', path='/js/comments.js') }}"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+{% extends "base.html" %}
+{% block head %}
 
-        </head>
-        <title>Comments</title>
-    {% endblock %} 
-    {% block content %}
+<head>
+  <style media="screen">
 
-    <body onload="showComments(JSON.stringify(`{{content}}`))"></body>
-   
-        <h1>Comment Section</h1>
-        <br><br>
-        <form method="post" action="/comment">
-          <input
-            type="text"
-            id="input"
-            name="comment"
-            placeholder="How do you feel about crypto today?"
-            required
-          />
-          <button type="button" name="button" id="cancel">cancel</button>
-          <button class="comment" type="submit">comment</button>
-        </form>
-            
-        <div class="box-container">
-          <ul class="box" id="box-list"></ul>
-          <button type="button" name="button" id="hide">hide</button>
-        </div>
-    
-            
-          <script type="text/javascript">
-            $(document).ready(function () {
-              $("#cancel").click(function () {
-                $("#input").val("");
-              });
-        
-              $("#hide").click(function () {
-                $(".box").text("");
-                $(".box-container").slideUp();
-              });
-            });
-          </script>
-  
-        
-    {% endblock %}
+  </style>
+  <link href="{{ url_for('static', path='/css/comments.css') }}" rel="stylesheet" />
+  <script src="{{ url_for('static', path='/js/comments.js') }}"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+<title>Comments</title>
+{% endblock %}
+{% block content %}
+
+<body onload="showComments(JSON.stringify(`{{content}}`))"></body>
+
+<h1>Comment Section</h1>
+<br><br>
+<form method="post" action="/comment">
+  <input type="text" id="input" name="comment" placeholder="How do you feel about crypto today?" required />
+  <button type="button" name="button" id="cancel">cancel</button>
+  <button class="comment" type="submit">comment</button>
+</form>
+
+<div class="box-container">
+  <ul class="box" id="box-list"></ul>
+  <button type="button" name="button" id="hide">hide</button>
+</div>
+
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    $("#cancel").click(function () {
+      $("#input").val("");
+    });
+
+    $("#hide").click(function () {
+      $(".box").text("");
+      $(".box-container").slideUp();
+    });
+  });
+</script>
+
+
+{% endblock %}

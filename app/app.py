@@ -61,28 +61,33 @@ def post_comments(
 def get_ticker_chart(request: Request):
     data = get_ticker_data("1d", "BTCUSDT")
 
-    df = pd.DataFrame(data, columns=["x","open", "high","low", "close","0","1","2","3","4","5","6"])
+    df = pd.DataFrame(
+        data,
+        columns=[
+            "x",
+            "open",
+            "high",
+            "low",
+            "close",
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+        ],
+    )
     df["x"] = pd.to_datetime(df["x"], unit="ms")
-    new_df = df[["x","close","high", "low", "open"]]
+    new_df = df[["x", "close", "high", "low", "open"]]
 
-    data = json.dumps(jsonable_encoder(new_df.to_dict(orient = "list")))
+    data = json.dumps(jsonable_encoder(new_df.to_dict(orient="list")))
 
-    return templates.TemplateResponse("ticker_chart.html", {"request": request, "content": data})
-
-
+    return templates.TemplateResponse(
+        "ticker_chart.html", {"request": request, "content": data}
+    )
 
 
 @app.get("/greed-and-fear", response_class=HTMLResponse)
 def get_greed_and_fear(request: Request):
     return templates.TemplateResponse("greed_and_fear.html", {"request": request})
-
-
-@app.post("/api/comment", status_code=status.HTTP_201_CREATED)
-def post_comment(payload: schemas.CommentPayload, db: Session = Depends(get_db)):
-    return crud.post_comment(db, payload)
-
-
-@app.get("/api/comment", status_code=status.HTTP_200_OK)
-def get_comments(db: Session = Depends(get_db)):
-    return crud.get_comments(db)
-

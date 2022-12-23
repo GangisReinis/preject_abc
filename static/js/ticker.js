@@ -34,18 +34,18 @@ function showTicker(pay) {
     xaxis: {
       autorange: true,
       domain: [0, 1],
-      range: [content.x[0],content.x[content.x.length - 1]],
+      range: [content.x[0], content.x[content.x.length - 1]],
       title: 'Date',
       type: 'date'
     },
     yaxis: {
       autorange: true,
       domain: [0, 1],
-      range: [Math.max(...content.high),Math.min(...content.low)],
+      range: [Math.max(...content.high), Math.min(...content.low)],
       type: 'linear'
     }
   };
-  
+
   var layout = { width: 700, height: 400 };
   Plotly.newPlot('ticker', data, layout);
 

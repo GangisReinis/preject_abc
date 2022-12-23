@@ -1,4 +1,4 @@
-{% extends "base.html" %} 
+{% extends "base.html" %}
 
 
 {% block head %}
@@ -7,15 +7,15 @@
 <link href="{{ url_for('static', path='/css/ticker.css') }}" rel="stylesheet" />
 <script src="{{ url_for('static', path='/js/ticker.js') }}"></script>
 <title>BTCUSDT Chart</title>
-{% endblock %} 
-
-{% block content %}
-  <h1>BTC/USDT Chart</h1>
-  <body onload="showTicker(`{{content}}`)">
-      <br><br>
-      <div id='ticker'></div>
-
-    </body>
-  
 {% endblock %}
 
+{% block content %}
+<h1>BTC/USDT Chart</h1>
+
+<body onload="showTicker(`{{content}}`)">
+  <br><br>
+  <div id='ticker'></div>
+
+</body>
+
+{% endblock %}

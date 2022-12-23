@@ -15,6 +15,3 @@ def post_comment(db: Session, payload: CommentPayload):
     db.refresh(db_item)
 
     return db_item
-
-
-
