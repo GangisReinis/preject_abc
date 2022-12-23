@@ -7,6 +7,7 @@ import pandas as pd
 from .tools import get_ticker_data
 import plotly.graph_objects as go
 import plotly.express as px
+import json
 
 
 from sqlalchemy.orm import Session
@@ -64,9 +65,9 @@ def get_ticker_chart(request: Request):
     df["x"] = pd.to_datetime(df["x"], unit="ms")
     new_df = df[["x","close","high", "low", "open"]]
 
-    data = new_df.to_dict(orient = "list")
+    data = json.dumps(jsonable_encoder(new_df.to_dict(orient = "list")))
 
-    return templates.TemplateResponse("ticker_chart.html", {"request": request, "content": jsonable_encoder(data)})
+    return templates.TemplateResponse("ticker_chart.html", {"request": request, "content": data})
 
 
 
